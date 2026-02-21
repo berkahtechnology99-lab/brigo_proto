@@ -1,4 +1,4 @@
-module github.com/berkahtechnology99-lab/brigo_proto
+module github.com/berkahtechnology99-lab/brigo-proto
 
 go 1.24.0
 
