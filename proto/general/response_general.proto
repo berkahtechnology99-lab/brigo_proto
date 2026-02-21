@@ -4,7 +4,7 @@ package response_general;
 
 import "google/protobuf/struct.proto";
 
-option go_package = "general-pb/general;generalpb";
+option go_package = "brigo_proto/general-pb/general;generalpb";
 
 message BaseResponse {
   string code = 1 [json_name = "code"];
