@@ -60,5 +60,3 @@ Catatan Tambahan:
 * Gunakan `make proto` dan `make clean` untuk menjaga konsistensi.
 
 ---
-
-File ini siap disimpan sebagai `README.txt`.
