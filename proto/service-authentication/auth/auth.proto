@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package auth;
-option go_package = "brigo_proto/service-authentication/auth;authpb";
+option go_package = "service-authentication/auth;authpb";
 
 import "buf/validate/validate.proto";
 import "general/response_general.proto";

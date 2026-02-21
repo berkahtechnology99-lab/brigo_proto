@@ -7,8 +7,8 @@
 package authpb
 
 import (
-	general "brigo_proto/general-pb/general"
 	context "context"
+	general "github.com/berkahtechnology99-lab/brigo_proto/gen/general"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"

@@ -17,9 +17,10 @@ proto:
 	@mkdir -p $(GEN_DIR)
 	$(PROTOC) \
 		--proto_path=$(PROTO_DIR) \
-		--go_out=$(GEN_DIR) --go_opt=paths=import \
-		--go-grpc_out=$(GEN_DIR) --go-grpc_opt=paths=import \
-		--validate_out="lang=go,paths=import:$(GEN_DIR)" \
+		--proto_path=. \
+		--go_out=$(GEN_DIR) --go_opt=paths=source_relative \
+		--go-grpc_out=$(GEN_DIR) --go-grpc_opt=paths=source_relative \
+		--validate_out="lang=go,paths=source_relative:$(GEN_DIR)" \
 		$(PROTO_FILES)
 
 clean:
