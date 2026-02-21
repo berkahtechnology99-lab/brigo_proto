@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package response_general;
+
+import "google/protobuf/struct.proto";
+
+option go_package = "general-pb/general;generalpb";
+
+message BaseResponse {
+  string code = 1 [json_name = "code"];
+  string message = 2 [json_name = "message"];
+  bool status = 3 [json_name = "status"];
+  google.protobuf.Value data = 4 [json_name = "data"];
+}

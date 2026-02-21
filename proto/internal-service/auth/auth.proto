@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package auth;
+option go_package = "internal-service/auth;authpb";
+
+import "buf/validate/validate.proto";
+import "general/response_general.proto";
+
+service AuthService {
+  rpc Login(LoginRequest) returns (response_general.BaseResponse);
+  rpc Logout(LogoutRequest) returns (response_general.BaseResponse);
+}
+
+message LoginRequest {
+  string username = 1 [
+    (buf.validate.field).string = {
+      len: 8,
+      pattern: "^[0-9]{8}$"
+    }
+  ];
+  string password = 2 [
+    (buf.validate.field).string = {
+      min_len: 1
+    }
+  ];
+}
+
+message LoginResponse {
+  string user_id      = 1;
+  string access_token = 2;
+  string created_at   = 3;
+  string expired_at   = 4;
+}
+
+message LogoutRequest {
+  string username = 1 [
+    (buf.validate.field).string = {
+      len: 8,
+      pattern: "^[0-9]{8}$"
+    }
+  ];
+}

@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+package user;
+
+import "google/protobuf/timestamp.proto";
+import "buf/validate/validate.proto";
+
+option go_package = "service/user;userPb";
+
+service UserService {
+  rpc GetUserByPernr(GetUserByPernrRequest) returns (GetUserByPernrResponse);
+}
+
+message GetUserByPernrRequest {
+  string username = 1 [
+    (buf.validate.field).string = {
+      len: 8,
+      pattern: "^[0-9]{8}$"
+    }
+  ];
+}
+
+message GetUserByPernrResponse {
+  string id          = 1;
+  string pernr       = 2;
+  string sname       = 3;
+  string jgpg        = 4;
+  string eselon      = 5;
+  string werks       = 6;
+  string werks_tx    = 7;
+  string btrtl       = 8;
+  string btrtl_tx    = 9;
+  string kostl       = 10;
+  string kostl_tx    = 11;
+  string orgeh       = 12;
+  string orgeh_tx    = 13;
+  string stell       = 14;
+  string stell_tx    = 15;
+  string plans       = 16;
+  string plans_tx    = 17;
+  string hilfm       = 18;
+  string htext       = 19;
+  string branch      = 20;
+  string mainbr      = 21;
+  bool   is_pemimpin = 22;
+  string admin_level = 23;
+  string orgeh_pgs    = 24;
+  string orgeh_pgs_tx = 25;
+  string plans_pgs    = 26;
+  string plans_pgs_tx = 27;
+  string branch_pgs   = 28;
+  string hilfm_pgs    = 29;
+  string htext_pgs    = 30;
+  string tipe_uker    = 31;
+  string rekening     = 32;
+  string npwp         = 33;
+  string region       = 34;
+  string rgdesc       = 35;
+  string brdesc       = 36;
+  string mbdesc       = 37;
+  google.protobuf.Timestamp created_at = 38;
+  google.protobuf.Timestamp updated_at = 39;
+  string role_user = 40;
+}
